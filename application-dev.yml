@@ -1,0 +1,37 @@
+spring:
+  zipkin:
+    base-url: http://zipkin:9411/
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
+queue:
+  api-carro:
+    name: CarroQueue
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-service:8761/eureka/
+  instance:
+    hostname: eureka-service
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: circuitbreakers,circuitbreakerevents,health,info
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+info:
+  author: Mateus Benites Dias
+  mail: mateusdias@outlook.com
+server:
+  port: ${PORT:9999}
+message: This is a message
